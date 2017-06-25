@@ -1,0 +1,83 @@
+html{
+	height: 100%;
+	width: 100%;
+}
+body { 
+	text-align: center; 
+	height: 100%;
+	width: 100%;
+}
+
+.heart {
+	font-size: 30ex;
+	color: #e00;
+	animation: beat .25s infinite alternate;
+	transform-origin: center;
+	margin-top: auto;
+	float: left;
+}
+
+/* Heart beat animation */
+@keyframes beat{
+	to { transform: scale(1.2); }
+}
+
+.container1{
+	height: 35%;
+	width: 100%;
+}
+.backgroundImg{
+	height: 80%;
+	width: 100%;
+}
+.toolBar{
+	height: 20%;
+	width: 100%;
+}
+.container2{
+	height: 55%;
+	width: 30%;
+	float: left;
+	background-color: #F0F8FF;
+}
+.container3{
+	height: 55%;
+	width: 70%;
+	float: left;
+	background-color: white;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+.active {
+    background-color: #4CAF50;
+}
+
+
+footer{
+	text-align: center;
+	color: white;
+	background-color: #333; 
+}

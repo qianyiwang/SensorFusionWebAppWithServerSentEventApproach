@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SSE Client</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript">
+		var source = new EventSource('http://wqianyi.com/SSE/ServerSentEvent.php')
+		source.onmessage = function(e){
+			document.getElementById('hrValue').innerHTML = e.data;
+			console.log(e.data);
+		}
+		function quit(){
+			open(location, '_self').close();
+		}
+		function backendRequest(cmd){
+			var xmlhttp = new XMLHttpRequest();
+        	xmlhttp.onreadystatechange = function() {
+            	if (this.readyState == 4 && this.status == 200) {
+                	console.log(this.responseText);
+                	if(this.responseText.includes('clear')){
+                		alert(this.responseText+" row(s) of data!");
+                	}
+            	}
+        	};
+        	xmlhttp.open("GET", "backend.php?cmd=" + cmd, true);
+        	xmlhttp.send();
+		}
+	</script>
+</head>
+<body>
+	<div class="container1">
+		<img class="backgroundImg" src="images/code_background.jpg" alt="background img">
+		<nav class="toolBar">
+			<ul>
+			  <li><a href="#" onClick="backendRequest('download')">Download</a></li>
+			  <li><a href="news.asp">Plot</a></li>
+			  <li><a href="#" onClick="backendRequest('clear')">Clear</a></li>
+			  <li style="float:right"><a href="#" onClick="quit()">Contact</a></li>
+			</ul>
+		</nav>
+	</div>
+	
+	<div class="container2">
+		<p class="heart">&#x2665;</p>
+		<h1 id="hrValue">0</h1>
+	</div>
+
+	<div class="container3">
+		<P>This is Container3</P>
+	</div>
+
+	<footer>
+		<p>&#9400; Qianyi Wang</p>
+	</footer>
+</body>
+</html>
